@@ -34,6 +34,7 @@ import ProctorRoom from '../pages/ProctorRoom';
 import ProctorRoomHost from '../pages/ProctorRoomHost';
 import JoinRoom from '../pages/JoinRoom';
 import VoiceRegistration from '../pages/VoiceRegistration';
+import ShowcasePage from '../pages/ShowcasePage';
 import ProctorDashboard from '../pages/ProctorDashboard';
 
 export default function AppRoutes() {
@@ -42,13 +43,17 @@ export default function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* Public Project Showcase Website */}
+        <Route path="/" element={<ShowcasePage />} />
+        <Route path="/showcase" element={<ShowcasePage />} />
+
         {/* Public Candidate Onboarding Route */}
         <Route path="/join/:roomId" element={<JoinRoom />} />
 
         {/* Public Auth Routes */}
         <Route element={<AuthLayout />}>
           {/* Redirect to dashboard if already logged in */}
-          <Route path="/login" element={isAuthenticated ? <Navigate to="/" /> : <Login />} />
+          <Route path="/login" element={isAuthenticated ? <Navigate to="/dashboard" /> : <Login />} />
           <Route path="/register" element={isAuthenticated ? <Navigate to="/face-registration" /> : <Register />} />
           <Route path="/register-face" element={<FaceRegistration />} />
           <Route path="/register-voice" element={<VoiceRegistration />} />
@@ -62,9 +67,8 @@ export default function AppRoutes() {
           <Route path="/monitoring" element={<LiveMonitoring />} />
           <Route path="/proctor-room-host/:id" element={<ProctorRoomHost />} />
           <Route path="/rooms/:id/host" element={<ProctorRoomHost />} />
-
           <Route element={<DashboardLayout />}>
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/app" element={<Dashboard />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/rooms" element={<RoomManager />} />
             <Route path="/proctor-dashboard" element={<ProctorDashboard />} />

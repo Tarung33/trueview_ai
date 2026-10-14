@@ -19,14 +19,10 @@
 
   body {
     background-color: #ffffff;
-    color: #000000;
+    color: inherit;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
-  }
-
-  h1, h2, h3, h4, h5, h6, p, span, div, label, input, select, button, td, th {
-    color: #000000;
   }
 
   /* Custom Scrollbar */
@@ -200,7 +196,54 @@
 
   .print-page-break-before {
     break-before: page !important;
-    page-break-before: always !important;
   }
 }
 
+/* ============================================================
+   SHOWCASE DESIGN UTILITIES — EDITORIAL & MIDNIGHT PALETTE
+   ============================================================ */
+
+.showcase-theme {
+  --navy-bg: #060b16;
+  --navy-card: #0b1224;
+  --navy-card-border: rgba(59, 130, 246, 0.16);
+  --electric-blue: #2563eb;
+  --electric-glow: rgba(37, 99, 235, 0.25);
+}
+
+/* Subtle tech grid background for the hero & system flow */
+.bg-tech-grid {
+  background-image: radial-gradient(rgba(59, 130, 246, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.bg-tech-grid-light {
+  background-image: radial-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Hairline high-precision borders */
+.border-subtle-glow {
+  border: 1px solid rgba(59, 130, 246, 0.18);
+  box-shadow: 0 0 16px -4px rgba(37, 99, 235, 0.15);
+}
+
+.border-subtle-glow:hover {
+  border-color: rgba(96, 165, 250, 0.38);
+  box-shadow: 0 0 24px -2px rgba(37, 99, 235, 0.25);
+}
+
+/* Telemetry readout font */
+.font-mono-telemetry {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Accessible reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
